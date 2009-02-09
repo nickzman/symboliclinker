@@ -1,0 +1,7 @@
+# Don't even try merging some XML files:
+*.xib -merge
+classes.nib -merge
+designable.nib -merge
+
+*.m diff=objc
+*.mm diff=objc
