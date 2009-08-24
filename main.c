@@ -385,7 +385,7 @@ static OSStatus SLPlugInExamineContext(	void*				thisInstance,
     //CFStringRef bundleCFStringRef = CFSTR("net.comcast.home.seiryu.SymbolicLinker");
     //CFBundleRef myCFBundleRef = CFBundleGetBundleWithIdentifier(bundleCFStringRef);
     //CFStringRef makeSymLinkText = CFSTR("Make Symbolic Link");
-    CFStringRef makeSymLinkText = CFCopyLocalizedStringFromTableInBundle(CFSTR("Make Symbolic Link"), CFSTR("Localizable"), SLOurBundle(), "This is the real deal, baby!");
+    CFStringRef makeSymLinkText = CFCopyLocalizedStringFromTableInBundle(CFSTR("Make Symbolic Link"), CFSTR("Localizable"), SLOurBundle(), "Localized title of the symbolic link plugin (for Leopard & earlier users)");
 
     DEBUGSTR("\p|SampleCMPlugInExamineContext-I-Debug;g");
 

@@ -17,9 +17,10 @@
 #include "SymbolicLinker.h"
 #include <stdio.h>
 #include <unistd.h>
-#include "MoreFinderEvents.h"
-#ifdef __LP64__
+#ifdef USE_COCOA
 #import <Cocoa/Cocoa.h>
+#else
+#include "MoreFinderEvents.h"
 #endif
 
 inline OSStatus StandardAlertCF(AlertType inAlertType, CFStringRef inError, CFStringRef inExplanation, const AlertStdCFStringAlertParamRec *inAlertParam, SInt16 *outItemHit);
@@ -36,6 +37,11 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	FSFindFolder(kUserDomain, kDesktopFolderType, false, &desktopFolder);
 	desktopFolderURL = CFURLCreateFromFSRef(kCFAllocatorDefault, &desktopFolder);
 	fileName = CFURLCopyLastPathComponent(url);
+	if (SLIsEqualToString(fileName, CFSTR("/")))	// true if the user is making a symlink to the boot volume
+	{
+		CFRelease(fileName);
+		fileName = CFURLCopyFileSystemPath(url, kCFURLHFSPathStyle);	// use CoreFoundation to figure out the boot volume's name
+	}
 	fileNameWithSymlinkExtension = CFStringCreateWithFormat(kCFAllocatorDefault, NULL, CFSTR("%@ symlink"), fileName);
 	destinationURL = CFURLCreateCopyAppendingPathComponent(kCFAllocatorDefault, desktopFolderURL, fileNameWithSymlinkExtension, false);
 	CFURLGetFileSystemRepresentation(destinationURL, true, (UInt8 *)destinationPath, PATH_MAX);
@@ -77,17 +83,10 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	}
 	else
 	{
-		/*static SInt32 osDesktopVersion = 0;
-		
-		if (osDesktopVersion == 0)
-			Gestalt(gestaltSystemVersion, &osDesktopVersion);
-		
-		// For pre-Tiger systems, we need to send an Apple event to the Finder stating that the contents of the desktop folder have changed. We don't need to do this on Tiger systems because the Tiger Finder automatically detects the change.
-		if (osDesktopVersion < 0x1040)
-		{*/
-			// If all went well, then let the Finder know that the file system has changed on the user's desktop.
-			MoreFEUpdateItemFSRef(&desktopFolder);
-		//}
+		// If all went well, then let the Finder know that the file system has changed on the user's desktop.
+#ifndef USE_COCOA
+		MoreFEUpdateItemFSRef(&desktopFolder);
+#endif
 	}
 done:
 	CFRelease(desktopFolderURL);
@@ -105,7 +104,7 @@ void MakeSymbolicLink(CFURLRef url)
 	char destPath[PATH_MAX], originalDestPath[PATH_MAX], pathFolder[PATH_MAX];
 	
 	// First check to see if we're making a link to a disk.
-	if (SLIsEqualToString(pathStringNoPathComponent, CFSTR("/Volumes")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("")))
+	if (SLIsEqualToString(pathStringNoPathComponent, CFSTR("/Volumes")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("/..")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("/")))
 	{
 		MakeSymbolicLinkToDesktop(url);
 		goto done;	// clean up and exit the function
@@ -157,21 +156,13 @@ void MakeSymbolicLink(CFURLRef url)
     }
     else
     {
-		/*static long osVersion = 0;
+#ifndef USE_COCOA
+		FSRef pathFolderRef;
 		
-		if (osVersion == 0)
-			Gestalt(gestaltSystemVersion, &osVersion);
-		
-		// For pre-Tiger systems, we need to send an Apple event to the Finder stating that the contents of the desktop folder have changed. We don't need to do this on Tiger systems because the Tiger Finder automatically detects the change.
-		if (osVersion < 0x1040)
-		{*/
-		// Took out the above because, as it turns out, the Tiger Finder doesn't always detect the change after all...
-			FSRef pathFolderRef;
-			
-			// If the operation went OK, then we tell the Finder that the file system has changed.
-			FSPathMakeRef((UInt8 *)pathFolder, &pathFolderRef, NULL);
-			MoreFEUpdateItemFSRef(&pathFolderRef);
-		//}
+		// If the operation went OK, then we tell the Finder that the file system has changed.
+		FSPathMakeRef((UInt8 *)pathFolder, &pathFolderRef, NULL);
+		MoreFEUpdateItemFSRef(&pathFolderRef);
+#endif
     }
 done:
 	CFRelease(urlNoPathComponent);
@@ -190,9 +181,10 @@ inline OSStatus StandardAlertCF(AlertType inAlertType, CFStringRef inError, CFSt
     OSStatus err = noErr;
     DialogRef outAlert;
     
-#ifdef __LP64__
+#ifdef USE_COCOA
 #pragma unused(outAlert)
-	NSApplicationLoad();
+	//NSApplicationLoad();
+	[NSApp activateIgnoringOtherApps:YES];
 	NSRunAlertPanel((NSString *)inError, @"%@", nil, nil, nil, (inExplanation ? (NSString *)inExplanation : @""));
 #else
     if ((err = CreateStandardAlert(inAlertType, inError, inExplanation, inAlertParam, &outAlert)) == noErr)

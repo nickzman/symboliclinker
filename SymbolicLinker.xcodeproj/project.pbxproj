@@ -7,8 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E05BDBED104220040093B493 /* ServicesMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = E05BDBEB104220040093B493 /* ServicesMenu.strings */; };
 		E097F839060EB98E00B686E5 /* SymbolicLinker.h in Headers */ = {isa = PBXBuildFile; fileRef = E097F837060EB98E00B686E5 /* SymbolicLinker.h */; };
 		E097F83A060EB98E00B686E5 /* SymbolicLinker.m in Sources */ = {isa = PBXBuildFile; fileRef = E097F838060EB98E00B686E5 /* SymbolicLinker.m */; };
+		E0E29B591041ED13001084AF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E29B581041ED13001084AF /* MainMenu.xib */; };
+		E0E29B5C1041ED34001084AF /* SLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E29B5B1041ED34001084AF /* SLAppDelegate.m */; };
+		E0E29B5E1041ED85001084AF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E29B5D1041ED85001084AF /* Cocoa.framework */; };
+		E0E29B681041FAA4001084AF /* SymbolicLinker.m in Sources */ = {isa = PBXBuildFile; fileRef = E097F838060EB98E00B686E5 /* SymbolicLinker.m */; };
+		E0E29B701041FB54001084AF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E06E73120552083D007DB405 /* Localizable.strings */; };
+		E0E29B851041FBAD001084AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E06E731A05520862007DB405 /* InfoPlist.strings */; };
 		E0EAE235060D11C400745DFE /* MoreFinderEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = E0054B1604BBCF1100A80004 /* MoreFinderEvents.h */; };
 		E0EAE236060D11C400745DFE /* MoreAppleEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = E0054B1A04BBD03000A80004 /* MoreAppleEvents.h */; };
 		E0EAE237060D11C400745DFE /* MoreAEObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = E0054B1F04BBD16300A80004 /* MoreAEObjects.h */; };
@@ -46,6 +53,7 @@
 		E0069D4603B5AB3F00A80004 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		E021A34B08D7B2150061C7A7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E021A34C08D7B2230061C7A7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E05BDBEC104220040093B493 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E06E73130552083D007DB405 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E06E731705520853007DB405 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E06E731B05520862007DB405 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -64,11 +72,25 @@
 		E0D17B280A12BC1700D3E393 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E0D938FF08EA2480005CF3DC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E0D9390008EA2487005CF3DC /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E0E29B4F1041EA5C001084AF /* SymbolicLinker.service */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SymbolicLinker.service; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0E29B511041EA5C001084AF /* SymbolicLinkerService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SymbolicLinkerService-Info.plist"; sourceTree = "<group>"; };
+		E0E29B581041ED13001084AF /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		E0E29B5A1041ED34001084AF /* SLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAppDelegate.h; sourceTree = "<group>"; };
+		E0E29B5B1041ED34001084AF /* SLAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAppDelegate.m; sourceTree = "<group>"; };
+		E0E29B5D1041ED85001084AF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		E0EAE24B060D11C400745DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0EAE24C060D11C400745DFE /* SymbolicLinker.plugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SymbolicLinker.plugin; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		E0E29B4D1041EA5C001084AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0E29B5E1041ED85001084AF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0EAE245060D11C400745DFE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,6 +121,7 @@
 				E0069D4603B5AB3F00A80004 /* Carbon.framework */,
 				E0054B2E04BBD3B000A80004 /* ApplicationServices.framework */,
 				E0054B2F04BBD3C600A80004 /* CoreServices.framework */,
+				E0E29B5D1041ED85001084AF /* Cocoa.framework */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -107,8 +130,11 @@
 			isa = PBXGroup;
 			children = (
 				E0EAE24B060D11C400745DFE /* Info.plist */,
+				E0E29B511041EA5C001084AF /* SymbolicLinkerService-Info.plist */,
+				E0E29B581041ED13001084AF /* MainMenu.xib */,
 				E06E73120552083D007DB405 /* Localizable.strings */,
 				E06E731A05520862007DB405 /* InfoPlist.strings */,
+				E05BDBEB104220040093B493 /* ServicesMenu.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -116,7 +142,8 @@
 		08FB77AFFE84173DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				08FB77B6FE84183AC02AAC07 /* main.c */,
+				E0E29B481041EA1C001084AF /* Plugin */,
+				E0E29B491041EA2F001084AF /* Service */,
 				E097F837060EB98E00B686E5 /* SymbolicLinker.h */,
 				E097F838060EB98E00B686E5 /* SymbolicLinker.m */,
 				E0054B1D04BBD14900A80004 /* MoreAppleEvents */,
@@ -128,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				E0EAE24C060D11C400745DFE /* SymbolicLinker.plugin */,
+				E0E29B4F1041EA5C001084AF /* SymbolicLinker.service */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,6 +178,23 @@
 			name = MoreAppleEvents;
 			sourceTree = "<group>";
 		};
+		E0E29B481041EA1C001084AF /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77B6FE84183AC02AAC07 /* main.c */,
+			);
+			name = Plugin;
+			sourceTree = "<group>";
+		};
+		E0E29B491041EA2F001084AF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E0E29B5A1041ED34001084AF /* SLAppDelegate.h */,
+				E0E29B5B1041ED34001084AF /* SLAppDelegate.m */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -170,9 +215,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E0EAE233060D11C400745DFE /* SymbolicLinker */ = {
+		E0E29B4E1041EA5C001084AF /* SymbolicLinker-Service */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E0DC7C8108D40C5B00002C54 /* Build configuration list for PBXNativeTarget "SymbolicLinker" */;
+			buildConfigurationList = E0E29B541041EA5D001084AF /* Build configuration list for PBXNativeTarget "SymbolicLinker-Service" */;
+			buildPhases = (
+				E0E29B4B1041EA5C001084AF /* Resources */,
+				E0E29B4C1041EA5C001084AF /* Sources */,
+				E0E29B4D1041EA5C001084AF /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SymbolicLinker-Service";
+			productName = SymbolicLinkerService;
+			productReference = E0E29B4F1041EA5C001084AF /* SymbolicLinker.service */;
+			productType = "com.apple.product-type.application";
+		};
+		E0EAE233060D11C400745DFE /* SymbolicLinker-CM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0DC7C8108D40C5B00002C54 /* Build configuration list for PBXNativeTarget "SymbolicLinker-CM" */;
 			buildPhases = (
 				E0EAE234060D11C400745DFE /* Headers */,
 				E0EAE23B060D11C400745DFE /* Resources */,
@@ -184,7 +246,7 @@
 			);
 			dependencies = (
 			);
-			name = SymbolicLinker;
+			name = "SymbolicLinker-CM";
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = SymbolicLinker;
 			productReference = E0EAE24C060D11C400745DFE /* SymbolicLinker.plugin */;
@@ -217,12 +279,24 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E0EAE233060D11C400745DFE /* SymbolicLinker */,
+				E0EAE233060D11C400745DFE /* SymbolicLinker-CM */,
+				E0E29B4E1041EA5C001084AF /* SymbolicLinker-Service */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E0E29B4B1041EA5C001084AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0E29B591041ED13001084AF /* MainMenu.xib in Resources */,
+				E0E29B701041FB54001084AF /* Localizable.strings in Resources */,
+				E0E29B851041FBAD001084AF /* InfoPlist.strings in Resources */,
+				E05BDBED104220040093B493 /* ServicesMenu.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0EAE23B060D11C400745DFE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -245,6 +319,15 @@
 /* End PBXRezBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		E0E29B4C1041EA5C001084AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0E29B5C1041ED34001084AF /* SLAppDelegate.m in Sources */,
+				E0E29B681041FAA4001084AF /* SymbolicLinker.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E0EAE23E060D11C400745DFE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,6 +345,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		E05BDBEB104220040093B493 /* ServicesMenu.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E05BDBEC104220040093B493 /* en */,
+			);
+			name = ServicesMenu.strings;
+			sourceTree = "<group>";
+		};
 		E06E73120552083D007DB405 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -368,38 +459,95 @@
 		E0DC7C8608D40C5B00002C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				"GCC_VERSION[arch=ppc]" = 3.3;
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_VERSION = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.1;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				"SDKROOT[arch=i386]" = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				"SDKROOT[arch=ppc]" = "$(DEVELOPER_SDK_DIR)/MacOSX10.3.9.sdk";
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 			};
 			name = Debug;
 		};
 		E0DC7C8708D40C5B00002C54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-					x86_64,
-				);
-				"GCC_VERSION[arch=ppc]" = 3.3;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				GCC_VERSION = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
 				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.1;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
-				"SDKROOT[arch=i386]" = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
-				"SDKROOT[arch=ppc]" = "$(DEVELOPER_SDK_DIR)/MacOSX10.3.9.sdk";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+			};
+			name = Release;
+		};
+		E0E29B521041EA5D001084AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(GCC_PREPROCESSOR_DEFINITIONS)",
+					USE_COCOA,
+				);
+				INFOPLIST_FILE = "SymbolicLinkerService-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				PRODUCT_NAME = SymbolicLinker;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				WARNING_CFLAGS = "-Wmost";
+				WRAPPER_EXTENSION = service;
+			};
+			name = Debug;
+		};
+		E0E29B531041EA5D001084AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(GCC_PREPROCESSOR_DEFINITIONS)",
+					USE_COCOA,
+				);
+				INFOPLIST_FILE = "SymbolicLinkerService-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PREBINDING = NO;
+				PRODUCT_NAME = SymbolicLinker;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.6.sdk";
+				WARNING_CFLAGS = "-Wmost";
+				WRAPPER_EXTENSION = service;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E0DC7C8108D40C5B00002C54 /* Build configuration list for PBXNativeTarget "SymbolicLinker" */ = {
+		E0DC7C8108D40C5B00002C54 /* Build configuration list for PBXNativeTarget "SymbolicLinker-CM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E0DC7C8208D40C5B00002C54 /* Debug */,
@@ -413,6 +561,15 @@
 			buildConfigurations = (
 				E0DC7C8608D40C5B00002C54 /* Debug */,
 				E0DC7C8708D40C5B00002C54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0E29B541041EA5D001084AF /* Build configuration list for PBXNativeTarget "SymbolicLinker-Service" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0E29B521041EA5D001084AF /* Debug */,
+				E0E29B531041EA5D001084AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
