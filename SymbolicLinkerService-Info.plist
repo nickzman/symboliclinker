@@ -27,10 +27,10 @@
 			</dict>
 		</dict>
 	</array>
-	<key>LSUIElement</key>
-	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
+	<key>LSBackgroundOnly</key>
+	<true/>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>

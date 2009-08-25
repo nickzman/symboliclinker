@@ -178,15 +178,13 @@ inline CFBundleRef SLOurBundle(void)
 
 inline OSStatus StandardAlertCF(AlertType inAlertType, CFStringRef inError, CFStringRef inExplanation, const AlertStdCFStringAlertParamRec *inAlertParam, SInt16 *outItemHit)
 {
-    OSStatus err = noErr;
-    DialogRef outAlert;
-    
+	OSStatus err = noErr;
+	
 #ifdef USE_COCOA
-#pragma unused(outAlert)
-	//NSApplicationLoad();
-	[NSApp activateIgnoringOtherApps:YES];
-	NSRunAlertPanel((NSString *)inError, @"%@", nil, nil, nil, (inExplanation ? (NSString *)inExplanation : @""));
+	CFUserNotificationDisplayAlert(0.0, kCFUserNotificationPlainAlertLevel, NULL, NULL, NULL, (inError ? inError : CFSTR("")), inExplanation, NULL, NULL, NULL, NULL);
 #else
+    DialogRef outAlert;
+	
     if ((err = CreateStandardAlert(inAlertType, inError, inExplanation, inAlertParam, &outAlert)) == noErr)
     {
         err = RunStandardAlert(outAlert, NULL, outItemHit);
