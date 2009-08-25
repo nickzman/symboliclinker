@@ -18,7 +18,7 @@
 			</dict>
 			<key>NSSendTypes</key>
 			<array>
-				<string>public.file-url</string>
+				<string>NSFilenamesPboardType</string>
 			</array>
 			<key>NSMenuItem</key>
 			<dict>
