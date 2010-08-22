@@ -65,6 +65,9 @@
 		E06E732505520964007DB405 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E06E7326055209B5007DB405 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E06E7327055209BC007DB405 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E085557C12217F5600ACC9EF /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E085557E12217F6300ACC9EF /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E085557F12217F6B00ACC9EF /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E0926ED710C8A85C005F5647 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E0926ED810C8A865005F5647 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E0926ED910C8A86C005F5647 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
@@ -286,6 +289,7 @@
 				it,
 				fi,
 				nl,
+				pt,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* SymbolicLinker */;
 			projectDirPath = "";
@@ -370,6 +374,7 @@
 				E0D9390008EA2487005CF3DC /* it */,
 				E0D17B270A12BC0E00D3E393 /* fi */,
 				E0926ED710C8A85C005F5647 /* nl */,
+				E085557C12217F5600ACC9EF /* pt */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 				E0D938FF08EA2480005CF3DC /* it */,
 				E0D17B280A12BC1700D3E393 /* fi */,
 				E0926ED810C8A865005F5647 /* nl */,
+				E085557E12217F6300ACC9EF /* pt */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -404,6 +410,7 @@
 				E0C9460D10462F1600C4B20E /* it */,
 				E0C9460E10462F1900C4B20E /* fi */,
 				E0926ED910C8A86C005F5647 /* nl */,
+				E085557F12217F6B00ACC9EF /* pt */,
 			);
 			name = ServicesMenu.strings;
 			sourceTree = "<group>";
