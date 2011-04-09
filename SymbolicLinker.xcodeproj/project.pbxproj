@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4DAA7761350418B00415B58 /* SymbolicLinkerService.icns in Resources */ = {isa = PBXBuildFile; fileRef = B4DAA7751350418B00415B58 /* SymbolicLinkerService.icns */; };
 		E097F839060EB98E00B686E5 /* SymbolicLinker.h in Headers */ = {isa = PBXBuildFile; fileRef = E097F837060EB98E00B686E5 /* SymbolicLinker.h */; };
 		E097F83A060EB98E00B686E5 /* SymbolicLinker.m in Sources */ = {isa = PBXBuildFile; fileRef = E097F838060EB98E00B686E5 /* SymbolicLinker.m */; };
 		E0C9460510462EF300C4B20E /* ServicesMenu.strings in Resources */ = {isa = PBXBuildFile; fileRef = E0C9460410462EF300C4B20E /* ServicesMenu.strings */; };
@@ -37,6 +38,7 @@
 /* Begin PBXFileReference section */
 		08FB77B6FE84183AC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		B4DAA7751350418B00415B58 /* SymbolicLinkerService.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SymbolicLinkerService.icns; sourceTree = "<group>"; };
 		E0054B1504BBCF1100A80004 /* MoreFinderEvents.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = MoreFinderEvents.c; sourceTree = "<group>"; };
 		E0054B1604BBCF1100A80004 /* MoreFinderEvents.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = MoreFinderEvents.h; sourceTree = "<group>"; };
 		E0054B1904BBD03000A80004 /* MoreAppleEvents.c */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.c; path = MoreAppleEvents.c; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				E0EAE24B060D11C400745DFE /* Info.plist */,
 				E0E29B511041EA5C001084AF /* SymbolicLinkerService-Info.plist */,
+				B4DAA7751350418B00415B58 /* SymbolicLinkerService.icns */,
 				E0E29B581041ED13001084AF /* MainMenu.xib */,
 				E06E73120552083D007DB405 /* Localizable.strings */,
 				E06E731A05520862007DB405 /* InfoPlist.strings */,
@@ -273,6 +276,7 @@
 			isa = PBXProject;
 			buildConfigurationList = E0DC7C8508D40C5B00002C54 /* Build configuration list for PBXProject "SymbolicLinker" */;
 			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -310,6 +314,7 @@
 				E0E29B701041FB54001084AF /* Localizable.strings in Resources */,
 				E0E29B851041FBAD001084AF /* InfoPlist.strings in Resources */,
 				E0C9460510462EF300C4B20E /* ServicesMenu.strings in Resources */,
+				B4DAA7761350418B00415B58 /* SymbolicLinkerService.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

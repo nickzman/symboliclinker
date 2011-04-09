@@ -2,37 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSServices</key>
-	<array>
-		<dict>
-			<key>NSMessage</key>
-			<string>makeSymbolicLink</string>
-			<key>NSPortName</key>
-			<string>SymbolicLinker</string>
-			<key>NSRequiredContext</key>
-			<dict>
-				<key>NSTextContent</key>
-				<string>FilePath</string>
-				<key>NSServiceCategory</key>
-				<string>public.item</string>
-			</dict>
-			<key>NSSendTypes</key>
-			<array>
-				<string>NSFilenamesPboardType</string>
-			</array>
-			<key>NSMenuItem</key>
-			<dict>
-				<key>default</key>
-				<string>Make Symbolic Link</string>
-			</dict>
-		</dict>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
-	<key>LSBackgroundOnly</key>
-	<true/>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleIconFile</key>
+	<string>SymbolicLinkerService.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.comcast.home.seiryu.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -45,11 +20,38 @@
 	<string>Symb</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSBackgroundOnly</key>
+	<true/>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Make Symbolic Link</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>makeSymbolicLink</string>
+			<key>NSPortName</key>
+			<string>SymbolicLinker</string>
+			<key>NSRequiredContext</key>
+			<dict>
+				<key>NSServiceCategory</key>
+				<string>public.item</string>
+				<key>NSTextContent</key>
+				<string>FilePath</string>
+			</dict>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSFilenamesPboardType</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
