@@ -75,6 +75,12 @@
 		E0926ED910C8A86C005F5647 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E097F837060EB98E00B686E5 /* SymbolicLinker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolicLinker.h; sourceTree = "<group>"; };
 		E097F838060EB98E00B686E5 /* SymbolicLinker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolicLinker.m; sourceTree = "<group>"; };
+		E0BC0AE713A5D42500034901 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E0BC0AE813A5D42800034901 /* nn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nn; path = nn.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E0BC0AE913A5D43100034901 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E0BC0AEA13A5D43300034901 /* nn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nn; path = nn.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E0BC0AEB13A5D43A00034901 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
+		E0BC0AEC13A5D43D00034901 /* nn */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nn; path = nn.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E0C9460610462F0400C4B20E /* English */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E0C9460710462F0700C4B20E /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E0C9460810462F0900C4B20E /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
@@ -149,8 +155,8 @@
 				E0E29B511041EA5C001084AF /* SymbolicLinkerService-Info.plist */,
 				B4DAA7751350418B00415B58 /* SymbolicLinkerService.icns */,
 				E0E29B581041ED13001084AF /* MainMenu.xib */,
-				E06E73120552083D007DB405 /* Localizable.strings */,
 				E06E731A05520862007DB405 /* InfoPlist.strings */,
+				E06E73120552083D007DB405 /* Localizable.strings */,
 				E0C9460410462EF300C4B20E /* ServicesMenu.strings */,
 			);
 			name = Resources;
@@ -294,6 +300,8 @@
 				fi,
 				nl,
 				pt,
+				nb,
+				nn,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* SymbolicLinker */;
 			projectDirPath = "";
@@ -380,6 +388,8 @@
 				E0D17B270A12BC0E00D3E393 /* fi */,
 				E0926ED710C8A85C005F5647 /* nl */,
 				E085557C12217F5600ACC9EF /* pt */,
+				E0BC0AE713A5D42500034901 /* nb */,
+				E0BC0AE813A5D42800034901 /* nn */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -398,6 +408,8 @@
 				E0D17B280A12BC1700D3E393 /* fi */,
 				E0926ED810C8A865005F5647 /* nl */,
 				E085557E12217F6300ACC9EF /* pt */,
+				E0BC0AE913A5D43100034901 /* nb */,
+				E0BC0AEA13A5D43300034901 /* nn */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -416,6 +428,8 @@
 				E0C9460E10462F1900C4B20E /* fi */,
 				E0926ED910C8A86C005F5647 /* nl */,
 				E085557F12217F6B00ACC9EF /* pt */,
+				E0BC0AEB13A5D43A00034901 /* nb */,
+				E0BC0AEC13A5D43D00034901 /* nn */,
 			);
 			name = ServicesMenu.strings;
 			sourceTree = "<group>";
