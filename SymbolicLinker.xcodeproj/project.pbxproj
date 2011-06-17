@@ -440,6 +440,10 @@
 		E0DC7C8208D40C5B00002C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_CHAR_IS_UNSIGNED_CHAR = YES;
@@ -475,6 +479,10 @@
 		E0DC7C8308D40C5B00002C54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					i386,
+					ppc,
+				);
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -502,13 +510,12 @@
 		E0DC7C8608D40C5B00002C54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_VERSION = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.1;
-				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.3;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 			};
 			name = Debug;
@@ -516,12 +523,10 @@
 		E0DC7C8708D40C5B00002C54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
-				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				GCC_VERSION = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				"MACOSX_DEPLOYMENT_TARGET[arch=i386]" = 10.4;
-				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.1;
+				"MACOSX_DEPLOYMENT_TARGET[arch=ppc]" = 10.3;
 				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
 			};
 			name = Release;
