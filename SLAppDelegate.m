@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 		NSURL *fileURL = [NSURL fileURLWithPath:filename];
 		
 		if (fileURL)
-			MakeSymbolicLink((CFURLRef)fileURL);
+			MakeSymbolicLink((__bridge CFURLRef)fileURL);
 	}
 }
 

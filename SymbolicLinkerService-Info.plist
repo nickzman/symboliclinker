@@ -9,13 +9,13 @@
 	<key>CFBundleIconFile</key>
 	<string>SymbolicLinkerService.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.comcast.home.seiryu.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.0v2</string>
+	<string>2.0v3</string>
 	<key>CFBundleSignature</key>
 	<string>Symb</string>
 	<key>CFBundleVersion</key>

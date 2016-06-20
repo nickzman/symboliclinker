@@ -18,4 +18,3 @@
 #include <Carbon/Carbon.h>
 
 void MakeSymbolicLink(CFURLRef url);
-inline CFBundleRef SLOurBundle(void);

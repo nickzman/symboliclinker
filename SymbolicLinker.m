@@ -23,8 +23,35 @@
 #include "MoreFinderEvents.h"
 #endif
 
-inline OSStatus StandardAlertCF(AlertType inAlertType, CFStringRef inError, CFStringRef inExplanation, const AlertStdCFStringAlertParamRec *inAlertParam, SInt16 *outItemHit);
-inline bool SLIsEqualToString(CFStringRef theString1, CFStringRef theString2);
+CF_INLINE CFBundleRef SLOurBundle(void)
+{
+	CFStringRef bundleCFStringRef = CFSTR("net.comcast.home.seiryu.SymbolicLinker");
+	return CFBundleGetBundleWithIdentifier(bundleCFStringRef);
+}
+
+
+CF_INLINE OSStatus StandardAlertCF(AlertType inAlertType, CFStringRef inError, CFStringRef inExplanation, const AlertStdCFStringAlertParamRec *inAlertParam, SInt16 *outItemHit)
+{
+	OSStatus err = noErr;
+	
+#ifdef USE_COCOA
+	CFUserNotificationDisplayAlert(0.0, kCFUserNotificationPlainAlertLevel, NULL, NULL, NULL, (inError ? inError : CFSTR("")), inExplanation, NULL, NULL, NULL, NULL);
+#else
+	DialogRef outAlert;
+	
+	if ((err = CreateStandardAlert(inAlertType, inError, inExplanation, inAlertParam, &outAlert)) == noErr)
+	{
+		err = RunStandardAlert(outAlert, NULL, outItemHit);
+	}
+#endif
+	return err;
+}
+
+CF_INLINE bool SLIsEqualToString(CFStringRef theString1, CFStringRef theString2)
+{
+	return (CFStringCompare(theString1, theString2, 0) == kCFCompareEqualTo);
+}
+
 
 void MakeSymbolicLinkToDesktop(CFURLRef url)
 {
@@ -167,33 +194,4 @@ void MakeSymbolicLink(CFURLRef url)
 done:
 	CFRelease(urlNoPathComponent);
 	CFRelease(pathStringNoPathComponent);
-}
-
-inline CFBundleRef SLOurBundle(void)
-{
-    CFStringRef bundleCFStringRef = CFSTR("net.comcast.home.seiryu.SymbolicLinker");
-    return CFBundleGetBundleWithIdentifier(bundleCFStringRef);
-}
-
-
-inline OSStatus StandardAlertCF(AlertType inAlertType, CFStringRef inError, CFStringRef inExplanation, const AlertStdCFStringAlertParamRec *inAlertParam, SInt16 *outItemHit)
-{
-	OSStatus err = noErr;
-	
-#ifdef USE_COCOA
-	CFUserNotificationDisplayAlert(0.0, kCFUserNotificationPlainAlertLevel, NULL, NULL, NULL, (inError ? inError : CFSTR("")), inExplanation, NULL, NULL, NULL, NULL);
-#else
-    DialogRef outAlert;
-	
-    if ((err = CreateStandardAlert(inAlertType, inError, inExplanation, inAlertParam, &outAlert)) == noErr)
-    {
-        err = RunStandardAlert(outAlert, NULL, outItemHit);
-    }
-#endif
-    return err;
-}
-
-inline bool SLIsEqualToString(CFStringRef theString1, CFStringRef theString2)
-{
-	return (CFStringCompare(theString1, theString2, 0) == kCFCompareEqualTo);
 }
