@@ -49,6 +49,7 @@
 			</dict>
 			<key>NSSendTypes</key>
 			<array>
+				<string>public.url</string>
 				<string>NSFilenamesPboardType</string>
 			</array>
 		</dict>

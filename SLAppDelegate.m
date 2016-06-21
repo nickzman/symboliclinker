@@ -39,14 +39,25 @@ int main(int argc, char **argv)
 
 - (void)makeSymbolicLink:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString **)error
 {
-	NSArray *filenames = [pboard propertyListForType:NSFilenamesPboardType];	// I thought these old pboard types were supposed to be deprecated in favor of UTIs, but this is the only way we can handle multiple files at once
+	NSArray *fileURLs = [pboard readObjectsForClasses:@[[NSURL class]] options:@{NSPasteboardURLReadingFileURLsOnlyKey: @YES}];
 	
-	for (NSString *filename in filenames)
+	if (fileURLs)
 	{
-		NSURL *fileURL = [NSURL fileURLWithPath:filename];
-		
-		if (fileURL)
+		[fileURLs enumerateObjectsUsingBlock:^(NSURL *fileURL, NSUInteger i, BOOL *stop) {
 			MakeSymbolicLink((__bridge CFURLRef)fileURL);
+		}];
+	}
+	else	// backward compatibility for the situation where public.url didn't work but NSFilenamesPboardType did
+	{
+		NSArray *filenames = [pboard propertyListForType:NSFilenamesPboardType];
+		
+		for (NSString *filename in filenames)
+		{
+			NSURL *fileURL = [NSURL fileURLWithPath:filename];
+			
+			if (fileURL)
+				MakeSymbolicLink((__bridge CFURLRef)fileURL);
+		}
 	}
 }
 
