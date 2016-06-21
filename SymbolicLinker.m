@@ -49,7 +49,10 @@ CF_INLINE OSStatus StandardAlertCF(AlertType inAlertType, CFStringRef inError, C
 
 CF_INLINE bool SLIsEqualToString(CFStringRef theString1, CFStringRef theString2)
 {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wassign-enum"
 	return (CFStringCompare(theString1, theString2, 0) == kCFCompareEqualTo);
+#pragma clang diagnostic pop
 }
 
 
@@ -100,7 +103,10 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	if (symlink(sourcePath, destinationPath) != 0)
 	{
 		CFStringRef CFMyerror = CFCopyLocalizedStringFromTableInBundle(CFSTR("Could not make the symbolic link, because the following error occurred: %d (%s)"), CFSTR("Localizable"), SLOurBundle(), "Error message");
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wformat-nonliteral"
 		CFStringRef CFMyerrorFormatted = CFStringCreateWithFormat(kCFAllocatorDefault, NULL, CFMyerror, errno, strerror(errno));
+#pragma clang diagnostic pop
 		SInt16 ignored;
 		
 		// An error occurred, so set up a standard alert box and run it...
@@ -172,7 +178,10 @@ void MakeSymbolicLink(CFURLRef url)
         else
         {
             CFStringRef CFMyerror = CFCopyLocalizedStringFromTableInBundle(CFSTR("Could not make the symbolic link, because the following error occurred: %d (%s)"), CFSTR("Localizable"), SLOurBundle(), "Error message");
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wformat-nonliteral"
             CFStringRef CFMyerrorFormatted = CFStringCreateWithFormat(kCFAllocatorDefault, NULL, CFMyerror, errno, strerror(errno));
+#pragma clang diagnostic pop
             SInt16 ignored;
 			
             // An error occurred, so set up a standard alert box and run it...

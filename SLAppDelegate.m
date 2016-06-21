@@ -16,9 +16,9 @@
 #import "SLAppDelegate.h"
 #import "SymbolicLinker.h"
 
-int main(int argc, char **argv)
+int main(int argc, const char *argv[])
 {
-	return NSApplicationMain(argc, (const char **)argv);
+	return NSApplicationMain(argc, argv);
 }
 
 
@@ -37,11 +37,11 @@ int main(int argc, char **argv)
 }
 
 
-- (void)makeSymbolicLink:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString **)error
+- (void)makeSymbolicLink:(NSPasteboard *)pboard userData:(NSString *)userData error:(NSString *__autoreleasing *)error
 {
 	NSArray *fileURLs = [pboard readObjectsForClasses:@[[NSURL class]] options:@{NSPasteboardURLReadingFileURLsOnlyKey: @YES}];
 	
-	if (fileURLs)
+	if (fileURLs && fileURLs.count)
 	{
 		[fileURLs enumerateObjectsUsingBlock:^(NSURL *fileURL, NSUInteger i, BOOL *stop) {
 			MakeSymbolicLink((__bridge CFURLRef)fileURL);
