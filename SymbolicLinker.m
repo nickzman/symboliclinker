@@ -62,6 +62,7 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	CFURLRef desktopFolderURL, destinationURL;
 	CFStringRef fileName, fileNameWithSymlinkExtension;
 	char sourcePath[PATH_MAX], destinationPath[PATH_MAX];
+	int tries = 1;
 	
 	// Set up the destination path...
 	FSFindFolder(kUserDomain, kDesktopFolderType, false, &desktopFolder);
@@ -77,51 +78,33 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	CFURLGetFileSystemRepresentation(destinationURL, true, (UInt8 *)destinationPath, PATH_MAX);
 	CFURLGetFileSystemRepresentation(url, false, (UInt8 *)sourcePath, PATH_MAX);
 	
-	// Check to make sure that destPath doesn't point to something that already exists.
-	if (access(destinationPath, F_OK) == 0)
+	// Now we make the link.
+	while (tries < INT_MAX && symlink(sourcePath, destinationPath) != 0)
 	{
-		int tries;
-		
-		for (tries = 1 ; tries < INT_MAX && access(destinationPath, F_OK) == 0 ; tries++)
+		if (errno == EEXIST)	// file aleady exists; try again with a different name
 		{
-			// We format it like how Apple does with aliases in this case.
-			//snprintf(destPath, PATH_MAX, "%s/%s symlink %d", cDesktopFolder, filename, tries);
 			CFRelease(fileNameWithSymlinkExtension);
 			CFRelease(destinationURL);
 			fileNameWithSymlinkExtension = CFStringCreateWithFormat(kCFAllocatorDefault, NULL, CFSTR("%@ symlink %d"), fileName, tries);
 			destinationURL = CFURLCreateCopyAppendingPathComponent(kCFAllocatorDefault, desktopFolderURL, fileNameWithSymlinkExtension, false);
 			CFURLGetFileSystemRepresentation(destinationURL, true, (UInt8 *)destinationPath, PATH_MAX);
+			tries++;
 		}
-		// In the extremely unlikely event that we tried 2^31-1 tries to get a path name, and didn't succeed, then just stop...
-		if (tries == INT_MAX)
+		else
 		{
-			goto done;
-		}
-	}
-	
-	// Now we make the link.
-	if (symlink(sourcePath, destinationPath) != 0)
-	{
-		CFStringRef CFMyerror = CFCopyLocalizedStringFromTableInBundle(CFSTR("Could not make the symbolic link, because the following error occurred: %d (%s)"), CFSTR("Localizable"), SLOurBundle(), "Error message");
+			CFStringRef CFMyerror = CFCopyLocalizedStringFromTableInBundle(CFSTR("Could not make the symbolic link, because the following error occurred: %d (%s)"), CFSTR("Localizable"), SLOurBundle(), "Error message");
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wformat-nonliteral"
-		CFStringRef CFMyerrorFormatted = CFStringCreateWithFormat(kCFAllocatorDefault, NULL, CFMyerror, errno, strerror(errno));
+			CFStringRef CFMyerrorFormatted = CFStringCreateWithFormat(kCFAllocatorDefault, NULL, CFMyerror, errno, strerror(errno));
 #pragma clang diagnostic pop
-		SInt16 ignored;
-		
-		// An error occurred, so set up a standard alert box and run it...
-		StandardAlertCF(kAlertCautionAlert, CFMyerrorFormatted, NULL, NULL, &ignored);
-		CFRelease(CFMyerror);
-		CFRelease(CFMyerrorFormatted);
+			SInt16 ignored;
+			
+			// An error occurred, so set up a standard alert box and run it...
+			StandardAlertCF(kAlertCautionAlert, CFMyerrorFormatted, NULL, NULL, &ignored);
+			CFRelease(CFMyerror);
+			CFRelease(CFMyerrorFormatted);
+		}
 	}
-	else
-	{
-		// If all went well, then let the Finder know that the file system has changed on the user's desktop.
-#ifndef USE_COCOA
-		MoreFEUpdateItemFSRef(&desktopFolder);
-#endif
-	}
-done:
 	CFRelease(desktopFolderURL);
 	CFRelease(fileName);
 	CFRelease(fileNameWithSymlinkExtension);
@@ -135,6 +118,7 @@ void MakeSymbolicLink(CFURLRef url)
 	CFURLRef urlNoPathComponent = CFURLCreateCopyDeletingLastPathComponent(kCFAllocatorDefault, url);
 	CFStringRef pathStringNoPathComponent = CFURLCopyFileSystemPath(urlNoPathComponent, kCFURLPOSIXPathStyle);
 	char destPath[PATH_MAX], originalDestPath[PATH_MAX], pathFolder[PATH_MAX];
+	int tries = 1;
 	
 	// First check to see if we're making a link to a disk.
 	if (SLIsEqualToString(pathStringNoPathComponent, CFSTR("/Volumes")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("/..")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("/")))
@@ -148,33 +132,22 @@ void MakeSymbolicLink(CFURLRef url)
 	
 	// Set up the destination path...
     snprintf(destPath, PATH_MAX, "%s symlink", originalDestPath);
-	
-    // Check to make sure that destPath doesn't point to something that already exists.
-    if (access(destPath, F_OK) == 0)
-    {
-        int tries;
-        
-        for (tries = 1 ; tries < INT_MAX && access(destPath, F_OK) == 0 ; tries++)
-        {
-            // We format it like how Apple does with aliases in this case.
-            snprintf(destPath, PATH_MAX, "%s symlink %d", originalDestPath, tries);
-        }
-		// In the extremely unlikely event that we tried 2^31-1 tries to get a path name, and didn't succeed, then just stop...
-		if (tries == INT_MAX)
-		{
-			goto done;
-		}
-    }
     
     // Now we make the link.
-    if (symlink(originalDestPath, destPath) != 0)
+    while (tries != INT_MAX && symlink(originalDestPath, destPath) != 0)
     {
-        if ((errno == EACCES) || (errno == EROFS))
+        if (errno == EACCES || errno == EROFS)
         {
             // We get to this point if it was a "permission denied" or "read-only" error.
             // Let's try it again, but we'll make it on the desktop.
             MakeSymbolicLinkToDesktop(url);
         }
+		else if (errno == EEXIST)
+		{
+			// Something else already exists at this path. Try again with a new name, using the convention Apple uses in Finder.
+			snprintf(destPath, PATH_MAX, "%s symlink %d", originalDestPath, tries);
+			tries++;
+		}
         else
         {
             CFStringRef CFMyerror = CFCopyLocalizedStringFromTableInBundle(CFSTR("Could not make the symbolic link, because the following error occurred: %d (%s)"), CFSTR("Localizable"), SLOurBundle(), "Error message");
@@ -189,16 +162,6 @@ void MakeSymbolicLink(CFURLRef url)
 			CFRelease(CFMyerror);
             CFRelease(CFMyerrorFormatted);
         }
-    }
-    else
-    {
-#ifndef USE_COCOA
-		FSRef pathFolderRef;
-		
-		// If the operation went OK, then we tell the Finder that the file system has changed.
-		FSPathMakeRef((UInt8 *)pathFolder, &pathFolderRef, NULL);
-		MoreFEUpdateItemFSRef(&pathFolderRef);
-#endif
     }
 done:
 	CFRelease(urlNoPathComponent);
