@@ -58,15 +58,15 @@ CF_INLINE bool SLIsEqualToString(CFStringRef theString1, CFStringRef theString2)
 
 void MakeSymbolicLinkToDesktop(CFURLRef url)
 {
-	FSRef desktopFolder;
 	CFURLRef desktopFolderURL, destinationURL;
 	CFStringRef fileName, fileNameWithSymlinkExtension;
 	char sourcePath[PATH_MAX], destinationPath[PATH_MAX];
 	int tries = 1;
 	
 	// Set up the destination path...
-	FSFindFolder(kUserDomain, kDesktopFolderType, false, &desktopFolder);
-	desktopFolderURL = CFURLCreateFromFSRef(kCFAllocatorDefault, &desktopFolder);
+	desktopFolderURL = CFBridgingRetain([[NSFileManager defaultManager] URLForDirectory:NSDesktopDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:NULL]);
+	if (!desktopFolderURL)	// if, for some reason, we fail to locate the user's desktop folder, then I'd rather have us silently fail than crash
+		return;
 	fileName = CFURLCopyLastPathComponent(url);
 	if (SLIsEqualToString(fileName, CFSTR("/")))	// true if the user is making a symlink to the boot volume
 	{
