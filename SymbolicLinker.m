@@ -61,7 +61,8 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	CFURLRef desktopFolderURL, destinationURL;
 	CFStringRef fileName, fileNameWithSymlinkExtension;
 	char sourcePath[PATH_MAX], destinationPath[PATH_MAX];
-	int tries = 1;
+	short tries = 1;
+	const short maxTries = SHRT_MAX;
 	
 	// Set up the destination path...
 	desktopFolderURL = CFBridgingRetain([[NSFileManager defaultManager] URLForDirectory:NSDesktopDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:NULL]);
@@ -79,7 +80,7 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	CFURLGetFileSystemRepresentation(url, false, (UInt8 *)sourcePath, PATH_MAX);
 	
 	// Now we make the link.
-	while (tries != INT_MAX && symlink(sourcePath, destinationPath) != 0)
+	while (tries != maxTries && symlink(sourcePath, destinationPath) != 0)
 	{
 		if (errno == EEXIST)	// file aleady exists; try again with a different name
 		{
@@ -120,7 +121,8 @@ void MakeSymbolicLink(CFURLRef url)
 	CFURLRef urlNoPathComponent = CFURLCreateCopyDeletingLastPathComponent(kCFAllocatorDefault, url);
 	CFStringRef pathStringNoPathComponent = CFURLCopyFileSystemPath(urlNoPathComponent, kCFURLPOSIXPathStyle);
 	char destPath[PATH_MAX], originalDestPath[PATH_MAX], pathFolder[PATH_MAX];
-	int tries = 1;
+	short tries = 1;
+	const short maxTries = SHRT_MAX;
 	
 	// First check to see if we're making a link to a disk.
 	if (SLIsEqualToString(pathStringNoPathComponent, CFSTR("/Volumes")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("/..")) || SLIsEqualToString(pathStringNoPathComponent, CFSTR("/")))
@@ -136,7 +138,7 @@ void MakeSymbolicLink(CFURLRef url)
     snprintf(destPath, PATH_MAX, "%s symlink", originalDestPath);
     
     // Now we make the link.
-    while (tries != INT_MAX && symlink(originalDestPath, destPath) != 0)
+    while (tries != maxTries && symlink(originalDestPath, destPath) != 0)
     {
         if (errno == EPERM || errno == EACCES || errno == EROFS)
         {
