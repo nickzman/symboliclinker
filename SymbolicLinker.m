@@ -79,7 +79,7 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	CFURLGetFileSystemRepresentation(url, false, (UInt8 *)sourcePath, PATH_MAX);
 	
 	// Now we make the link.
-	while (tries < INT_MAX && symlink(sourcePath, destinationPath) != 0)
+	while (tries != INT_MAX && symlink(sourcePath, destinationPath) != 0)
 	{
 		if (errno == EEXIST)	// file aleady exists; try again with a different name
 		{
@@ -103,8 +103,10 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 			StandardAlertCF(kAlertCautionAlert, CFMyerrorFormatted, NULL, NULL, &ignored);
 			CFRelease(CFMyerror);
 			CFRelease(CFMyerrorFormatted);
+			goto done;
 		}
 	}
+done:
 	CFRelease(desktopFolderURL);
 	CFRelease(fileName);
 	CFRelease(fileNameWithSymlinkExtension);
@@ -141,6 +143,7 @@ void MakeSymbolicLink(CFURLRef url)
             // We get to this point if it was a "permission denied" or "read-only" error.
             // Let's try it again, but we'll make it on the desktop.
             MakeSymbolicLinkToDesktop(url);
+			goto done;
         }
 		else if (errno == EEXIST)
 		{
@@ -161,6 +164,7 @@ void MakeSymbolicLink(CFURLRef url)
             StandardAlertCF(kAlertCautionAlert, CFMyerrorFormatted, NULL, NULL, &ignored);
 			CFRelease(CFMyerror);
             CFRelease(CFMyerrorFormatted);
+			goto done;
         }
     }
 done:
