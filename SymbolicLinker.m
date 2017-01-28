@@ -138,7 +138,7 @@ void MakeSymbolicLink(CFURLRef url)
     // Now we make the link.
     while (tries != INT_MAX && symlink(originalDestPath, destPath) != 0)
     {
-        if (errno == EACCES || errno == EROFS)
+        if (errno == EPERM || errno == EACCES || errno == EROFS)
         {
             // We get to this point if it was a "permission denied" or "read-only" error.
             // Let's try it again, but we'll make it on the desktop.
