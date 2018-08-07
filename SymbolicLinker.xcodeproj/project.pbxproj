@@ -21,9 +21,9 @@
 		B4DAA7751350418B00415B58 /* SymbolicLinkerService.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SymbolicLinkerService.icns; sourceTree = "<group>"; };
 		E021A34B08D7B2150061C7A7 /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E021A34C08D7B2230061C7A7 /* ja */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E06E73130552083D007DB405 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E06E73130552083D007DB405 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E06E731705520853007DB405 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E06E731B05520862007DB405 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E06E731B05520862007DB405 /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E06E731F05520870007DB405 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E06E73200552089D007DB405 /* de */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E06E7321055208A7007DB405 /* de */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		E0BC0AEA13A5D43300034901 /* nn */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nn; path = nn.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E0BC0AEB13A5D43A00034901 /* nb */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E0BC0AEC13A5D43D00034901 /* nn */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = nn; path = nn.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
-		E0C9460610462F0400C4B20E /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
+		E0C9460610462F0400C4B20E /* en */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E0C9460710462F0700C4B20E /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E0C9460810462F0900C4B20E /* de */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
 		E0C9460910462F0B00C4B20E /* tr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/ServicesMenu.strings; sourceTree = "<group>"; };
@@ -161,13 +161,9 @@
 			};
 			buildConfigurationList = E0DC7C8508D40C5B00002C54 /* Build configuration list for PBXProject "SymbolicLinker" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
 				fr,
 				en,
 				de,
@@ -222,7 +218,7 @@
 		E06E73120552083D007DB405 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E06E73130552083D007DB405 /* English */,
+				E06E73130552083D007DB405 /* en */,
 				E06E731705520853007DB405 /* fr */,
 				E06E7321055208A7007DB405 /* de */,
 				E06E73220552090B007DB405 /* tr */,
@@ -242,7 +238,7 @@
 		E06E731A05520862007DB405 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E06E731B05520862007DB405 /* English */,
+				E06E731B05520862007DB405 /* en */,
 				E06E731F05520870007DB405 /* fr */,
 				E06E73200552089D007DB405 /* de */,
 				E06E732305520923007DB405 /* tr */,
@@ -262,7 +258,7 @@
 		E0C9460410462EF300C4B20E /* ServicesMenu.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E0C9460610462F0400C4B20E /* English */,
+				E0C9460610462F0400C4B20E /* en */,
 				E0C9460710462F0700C4B20E /* fr */,
 				E0C9460810462F0900C4B20E /* de */,
 				E0C9460910462F0B00C4B20E /* tr */,
