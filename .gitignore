@@ -10,3 +10,5 @@ profile
 # Ignore leftovers from other SCM systems:
 CVS
 .svn
+SymbolicLinker.xcodeproj/project.xcworkspace/xcuserdata
+SymbolicLinker.xcodeproj/xcuserdata
