@@ -71,8 +71,13 @@ void MakeSymbolicLinkToDesktop(CFURLRef url)
 	fileName = CFURLCopyLastPathComponent(url);
 	if (SLIsEqualToString(fileName, CFSTR("/")))	// true if the user is making a symlink to the boot volume
 	{
+		NSString *volumeName = nil;
+		
 		CFRelease(fileName);
-		fileName = CFURLCopyFileSystemPath(url, kCFURLHFSPathStyle);	// use CoreFoundation to figure out the boot volume's name
+		if ([(NSURL *)url getResourceValue:&volumeName forKey:NSURLVolumeLocalizedNameKey error:NULL])  // try to get the boot volume name (like "Macintosh HD")
+			fileName = CFBridgingRetain(volumeName);	// use it if we got it
+		else
+			fileName = CFBridgingRetain(@":");	// use a default value if that failed for some reason; we can't use "/" because that's reserved
 	}
 	fileNameWithSymlinkExtension = CFStringCreateWithFormat(kCFAllocatorDefault, NULL, CFSTR("%@ symlink"), fileName);
 	destinationURL = CFURLCreateCopyAppendingPathComponent(kCFAllocatorDefault, desktopFolderURL, fileNameWithSymlinkExtension, false);
