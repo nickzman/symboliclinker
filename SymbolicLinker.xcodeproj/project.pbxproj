@@ -160,7 +160,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1220;
 				TargetAttributes = {
 					E0E29B4E1041EA5C001084AF = {
 						DevelopmentTeam = 8D98N325TG;
@@ -373,12 +373,13 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = 8D98N325TG;
+				ENABLE_HARDENED_RUNTIME = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(GCC_PREPROCESSOR_DEFINITIONS)",
 					USE_COCOA,
@@ -388,6 +389,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "net.comcast.home.seiryu.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SymbolicLinker;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = service;
 			};
 			name = Debug;
@@ -397,7 +399,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -411,6 +413,7 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.comcast.home.seiryu.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = SymbolicLinker;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = service;
 			};
 			name = Release;
